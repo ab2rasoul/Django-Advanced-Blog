@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     #apps
     "accounts.apps.AccountsConfig",
-    "blog.apps.BlogConfig",
+    # "blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
@@ -120,3 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+
+# user mabager config
+AUTH_USER_MODEL = 'accounts.User'
