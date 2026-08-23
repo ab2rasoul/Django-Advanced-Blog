@@ -1,2 +1,3 @@
 django
 python-decouple==3.8
+pillow
