@@ -1,10 +1,12 @@
 from django.urls import path
 from . import views
-from .views import indexView
-from django.views.generic import TemplateView
+from .views import RedirectToMaktab
+from django.views.generic import TemplateView, RedirectView
 
-urlpatterns = [
-    path('fbv-index', indexView, name='fbv-index'),
-    # path('cbv-index', TemplateView.as_view(template_name='index.html', extra_context={"name":"Ali"}))
-    path('cbv-index', views.IndexView.as_view(),name = 'cbv-index')
+app_name = "blog"
+
+urlpatterns = [    
+    path('cbv-index', views.IndexView.as_view(),name = 'cbv-index'),
+    path('post/', views.PostList.as_view(),name='post-list'),
+    path('go-to-maktabkhooneh/<int:pk>/', RedirectToMaktab.as_view(pattern_name="blog:cbv-index"), name = 'redirect-to-index')
 ]
