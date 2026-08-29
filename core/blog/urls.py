@@ -1,8 +1,10 @@
 from django.urls import path
+from . import views
 from .views import indexView
 from django.views.generic import TemplateView
 
 urlpatterns = [
     path('fbv-index', indexView, name='fbv-index'),
-    path('cbv-index', TemplateView.as_view(template_name='index.html', extra_context={"name":"Ali"}))
+    # path('cbv-index', TemplateView.as_view(template_name='index.html', extra_context={"name":"Ali"}))
+    path('cbv-index', views.IndexView.as_view(),name = 'cbv-index')
 ]
